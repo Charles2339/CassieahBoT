@@ -1,5 +1,5 @@
 export class Deferred<Res, Rej = unknown> extends Promise<Res> {
-  constructor() {
+  constructor(initialValue?: Res) {
     let res: Deferred<Res>["resolve"];
     let rej: Deferred<Res>["reject"];
     super((res_cb, rej_cb) => {
@@ -14,7 +14,7 @@ export class Deferred<Res, Rej = unknown> extends Promise<Res> {
       this.rejectReason = reason;
       rej(reason);
     };
-    this.value = null;
+    this.value = initialValue ?? null;
   }
 
   value: Res | null;
