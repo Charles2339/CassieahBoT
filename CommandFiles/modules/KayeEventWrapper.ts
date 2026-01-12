@@ -279,3 +279,12 @@ export namespace KayeBotEvent {
     return { ...form };
   }
 }
+
+export function example(ev: KayeBotEvent) {
+  const res = ev.send("The earth is flat.");
+  res.listenReplies();
+
+  res.on("reply", (ev2) => {
+    ev2.reply(`"${ev2.body}" ☝️🤓`);
+  });
+}
