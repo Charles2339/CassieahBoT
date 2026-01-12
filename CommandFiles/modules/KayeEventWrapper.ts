@@ -357,6 +357,10 @@ export namespace KayeBotEvent {
 
     resolve: (value: Res) => void;
     reject: (reason?: Rej) => void;
+
+    get then() {
+      return this.internalPromise.then.bind(this.internalPromise);
+    }
   }
 }
 
