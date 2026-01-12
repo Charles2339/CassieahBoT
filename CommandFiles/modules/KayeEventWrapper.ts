@@ -253,10 +253,15 @@ export namespace KayeBotEvent {
     timestamp: DispatchedInfo["timestamp"];
     threadID: DispatchedInfo["threadID"];
 
-    listenReplies() {
-      this.then(() => {
-        this.emit("listen_replies");
-      });
+    async listenReplies({ timeout = Infinity }: { timeout?: number } = {}) {
+      await this;
+      this.emit("listen_replies");
+      if (!isFinite(timeout)) {
+        return setTimeout(() => {
+          this.stopListenReplies();
+        });
+      }
+      return null;
     }
 
     stopListenReplies() {
@@ -265,10 +270,15 @@ export namespace KayeBotEvent {
       });
     }
 
-    listenReactions() {
-      this.then(() => {
-        this.emit("listen_reactions");
-      });
+    async listenReactions({ timeout = Infinity }: { timeout?: number } = {}) {
+      await this;
+      this.emit("listen_reactions");
+      if (!isFinite(timeout)) {
+        return setTimeout(() => {
+          this.stopListenReplies();
+        });
+      }
+      return null;
     }
 
     stopListenReactions() {
@@ -305,7 +315,7 @@ export namespace KayeBotEvent {
 
 export function example(ev: KayeBotEvent) {
   const res = ev.send("The earth is flat.");
-  res.listenReplies();
+  res.listenReplies({ timeout: 5 * 60 * 1000 });
 
   res.on("reply", (ev2) => {
     ev2.reply(`"${ev2.body}" ☝️🤓`);
