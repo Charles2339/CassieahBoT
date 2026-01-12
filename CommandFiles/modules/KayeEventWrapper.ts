@@ -231,19 +231,27 @@ export namespace KayeBotEvent {
     threadID: DispatchedInfo["threadID"];
 
     listenReplies() {
-      this.emit("listen_replies");
+      this.then(() => {
+        this.emit("listen_replies");
+      });
     }
 
     stopListenReplies() {
-      this.emit("stop_listen_replies");
+      this.then(() => {
+        this.emit("stop_listen_replies");
+      });
     }
 
     listenReactions() {
-      this.emit("listen_reactions");
+      this.then(() => {
+        this.emit("listen_reactions");
+      });
     }
 
     stopListenReactions() {
-      this.emit("stop_listen_reactions");
+      this.then(() => {
+        this.emit("stop_listen_reactions");
+      });
     }
   }
 
