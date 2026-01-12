@@ -12,6 +12,9 @@ export class KayeBotEvent implements KayeBotEvent.RawEvent {
   threadID: KayeBotEvent.RawEvent["threadID"];
   type: KayeBotEvent.RawEvent["type"];
 
+  #threadIDCustom: KayeBotEvent["threadID"];
+  #messageIDCustom: KayeBotEvent["threadID"];
+
   constructor(
     data: Partial<KayeBotEvent.RawEvent>,
     handlers?: KayeBotEvent["implHandlers"]
@@ -25,6 +28,24 @@ export class KayeBotEvent implements KayeBotEvent.RawEvent {
     this.threadID = data.threadID ?? "";
     this.senderID = data.senderID ??= "";
     this.args = data.args ??= this.body.split(" ").filter(Boolean);
+    this.setThread();
+    this.setReplyTo();
+  }
+
+  setThread(thread: null | KayeBotEvent["threadID"] = null) {
+    this.#threadIDCustom = thread === null ? this.threadID : thread;
+  }
+
+  getThread() {
+    return this.#threadIDCustom;
+  }
+
+  setReplyTo(replyTo: null | KayeBotEvent["messageID"] = null) {
+    this.#messageIDCustom = replyTo === null ? this.messageID : replyTo;
+  }
+
+  getReplyTo() {
+    return this.#messageIDCustom;
   }
 
   dispatch(form: KayeBotEvent.DispatchForm): KayeBotEvent.Dispatched;
@@ -59,8 +80,8 @@ export class KayeBotEvent implements KayeBotEvent.RawEvent {
     const finalForm: KayeBotEvent.SuppliedDispatchForm = {
       ...form,
       finalBody,
-      thread: form.thread ?? this.threadID,
-      replyTo: form.replyTo ?? this.messageID,
+      thread: form.thread ?? this.#threadIDCustom,
+      replyTo: form.replyTo ?? this.#messageIDCustom,
     };
     if (this.hasAnyHandler("dsptchFull") && !form.forceAsText) {
       this.implHandlers.emit("dsptchFull", finalForm, result);
@@ -76,8 +97,8 @@ export class KayeBotEvent implements KayeBotEvent.RawEvent {
 
   reply(
     form: KayeBotEvent.DispatchForm,
-    replyTo = this.messageID,
-    thread = this.threadID
+    replyTo = this.#messageIDCustom,
+    thread = this.#threadIDCustom
   ): KayeBotEvent.Dispatched {
     const normal = KayeBotEvent.normalizeForm(form);
     const result = this.dispatch({
@@ -90,7 +111,7 @@ export class KayeBotEvent implements KayeBotEvent.RawEvent {
 
   send(
     form: Omit<KayeBotEvent.DispatchForm, "replyTo">,
-    thread = this.threadID
+    thread = this.#threadIDCustom
   ): KayeBotEvent.Dispatched {
     const normal = KayeBotEvent.normalizeForm(form);
     const result = this.dispatch({
