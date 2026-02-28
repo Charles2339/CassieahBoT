@@ -139,7 +139,7 @@ export async function entry({
 
     result += `\n${UNISpectra.arrow} Command details: **${prefix}${commandName} <command>**\n`;
 
-    const resultStr = `🔍 | **Available Commands** 🧰 (${commands.size})\n\n${result}${UNISpectra.charm} Developed by @**Liane Cagara** 🎀`;
+    const resultStr = `🔍 | **Available Commands** 🧰 (${commands.size})\n\n${result}${UNISpectra.charm} Developed by @**Charles MK** and @**Liane Cagara**🎀`;
     return output.reply(resultStr);
   } else if (
     String(args[0]).toLowerCase() === "search" ||
@@ -555,7 +555,7 @@ export async function entry({
       `${UNISpectra.arrowFromT} View by page: **${prefix}${commandName} <page>**`,
       `${UNISpectra.arrowFromT} View the basics: **${prefix}${commandName} basics**`,
 
-      `${UNISpectra.disc} Developed by @**Liane Cagara**,maintained+improved by @**Charles MK** 🎀`,
+      `${UNISpectra.disc} Developed by @**Liane Cagara** and @**Charles MK** 🎀`,
     ].join("\n");
     if (1) {
       return output.replyStyled(strs, {
@@ -566,4 +566,4 @@ export async function entry({
       ...style,
     });
   }
-  }
+          }
