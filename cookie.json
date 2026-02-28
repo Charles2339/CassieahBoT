@@ -1,1 +1,114 @@
-"uwu"
+[
+  {
+    "name": "datr",
+    "value": "aSmjacCQVggnw92sORq6woZQ",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1806860630.587818,
+    "httpOnly": true,
+    "secure": true
+  },
+  {
+    "name": "sb",
+    "value": "aSmjaQwPjME35Al65QgPsEwt",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1806860658.554462,
+    "httpOnly": true,
+    "secure": true
+  },
+  {
+    "name": "ps_l",
+    "value": "1",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1806860633.080881,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "ps_n",
+    "value": "1",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1806860633.080995,
+    "httpOnly": true,
+    "secure": true
+  },
+  {
+    "name": "c_user",
+    "value": "100062530337681",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1803836658.552287,
+    "httpOnly": false,
+    "secure": true
+  },
+  {
+    "name": "xs",
+    "value": "25%3AikS0n89vN_zgsQ%3A2%3A1772300674%3A-1%3A-1",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1803836658.55467,
+    "httpOnly": true,
+    "secure": true
+  },
+  {
+    "name": "locale",
+    "value": "en_US",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1772905461.59894,
+    "httpOnly": false,
+    "secure": true
+  },
+  {
+    "name": "pas",
+    "value": "100062530337681%3AzkqU158bTj",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1806861307.297071,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "vpd",
+    "value": "v1%3B694x360x3",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1777485308,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "fr",
+    "value": "0568VBOw2aLmBuZZw.AWcvzOLan1iUuoxhKOHA-i8Pp_Sd59uOIqgyLo4066Xl9TngPH8.Bpoylp..AAA.0.0.BpoywQ.AWedh17wCBqwQ6pa559UVPdQ95E",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1780077307.296441,
+    "httpOnly": true,
+    "secure": true
+  },
+  {
+    "name": "wl_cbv",
+    "value": "v2%3Bclient_version%3A3100%3Btimestamp%3A1772301328",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1780077308,
+    "httpOnly": false,
+    "secure": true
+  },
+  {
+    "name": "fbl_st",
+    "value": "101625187%3BT%3A29538355",
+    "domain": ".facebook.com",
+    "path": "/",
+    "expires": 1803837308,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Strict"
+  }
+]
